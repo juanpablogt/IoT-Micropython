@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "author": "Juan Pablo Gonzalez Trejos",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -105.6,
+      "left": -4.76,
+      "attrs": { "env": "micropython-20260406-v1.28.0" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -61.2, "left": 167, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 32.75,
+      "left": 124.8,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 61.55,
+      "left": 124.8,
+      "attrs": { "value": "220" }
+    },
+    { "type": "wokwi-led", "id": "led2", "top": -61.2, "left": 215, "attrs": { "color": "cyan" } },
+    { "type": "wokwi-led", "id": "led3", "top": -61.2, "left": 263, "attrs": { "color": "blue" } },
+    {
+      "type": "wokwi-led",
+      "id": "led4",
+      "top": -61.2,
+      "left": 301.4,
+      "attrs": { "color": "white" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 80.75,
+      "left": 124.8,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": 99.95,
+      "left": 124.8,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:4", "r1:1", "green", [ "h0" ] ],
+    [ "r1:2", "led1:A", "green", [ "v0", "h56.4" ] ],
+    [ "led1:C", "esp:GND.3", "green", [ "v0" ] ],
+    [ "esp:0", "r2:1", "green", [ "h0" ] ],
+    [ "r2:2", "led2:A", "green", [ "v0", "h56.4" ] ],
+    [ "esp:2", "r3:1", "green", [ "h19.2", "v38.4" ] ],
+    [ "r3:2", "led3:A", "green", [ "v0", "h142.8" ] ],
+    [ "r4:2", "led4:A", "green", [ "v-9.6", "h104.4" ] ],
+    [ "esp:15", "r4:1", "green", [ "v0", "h9.6", "v38.4" ] ],
+    [ "led2:C", "esp:GND.3", "green", [ "v9.6", "h-105.2", "v-9.6" ] ],
+    [ "led3:C", "esp:GND.3", "green", [ "v19.2", "h-162.8", "v-19.2" ] ],
+    [ "led4:C", "esp:GND.3", "green", [ "v28.8", "h-210.8", "v-28.8" ] ]
+  ],
+  "dependencies": {}
+}
